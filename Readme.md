@@ -1,6 +1,16 @@
 # Plug and Play CMS (React)
 
-## Recommended Tech Stack for your Library
+## Summary of the User Experience
+
+- **The Public**: They visit your-site.com. They see your beautiful static content. They have no idea it's a CMS.
+- **You (The Admin)**:
+  1. You go to your site.
+  2. You click a hidden "Login" link (or a small floating button).
+  3. You log in via Supabase (Google, Email/Pass, etc.).
+  4. The site refreshes, and suddenly blue dashed lines appear around your titles and paragraphs.
+  5. You click, type, and click away. Saved.
+
+## Recommended Tech Stack
 
 Since you are already comfortable with React, FastAPI, and now Supabase, here is the most efficient path:
 
@@ -18,13 +28,13 @@ Since you are already comfortable with React, FastAPI, and now Supabase, here is
 </Editable>
 ```
 
-## Why this is better than "In-Repo" SQLite
+## Why this is better than "In-Repo" SQLite approach
 
 - **Instant Updates**: When you save an edit, it's live immediately. You don't have to wait 3–5 minutes for a GitHub Action to rebuild your site.
 - **Authentication**: You can easily wrap your "Save" function in a login check (like the Keycloak setup you've been working on) so only you can edit the site, but everyone can view it.
 - **Scale**: If your site gets 1,000 visitors, a remote database handles it easily. A SQLite file in a repo can sometimes get "locked" if too many people try to access or build it at once.
 
-## How your library would look (Code-wise)
+## How your library would look (Code-wise) - sample 
 
 If you host the DB separately, your library initialization would just need a URL and an API key:
 
@@ -55,6 +65,8 @@ Services like Supabase or Firebase allow you to talk to the database directly fr
 - **How it works**: You use their JS library in your React app.
 - **Security**: Instead of a password, you use Row Level Security (RLS). You write a rule in their dashboard that says: "Only allow a user to update this title if they are logged in as the Admin."
 - **Verdict**: This is the easiest "no-backend" way to achieve your goal.
+
+---
 
 ## Security and Log in
 
@@ -122,12 +134,3 @@ export const CMSProvider = ({ children }) => {
 };
 ```
 
-## Summary of the User Experience
-
-- **The Public**: They visit your-site.com. They see your beautiful static content. They have no idea it's a CMS.
-- **You (The Admin)**:
-  1. You go to your site.
-  2. You click a hidden "Login" link (or a small floating button).
-  3. You log in via Supabase (Google, Email/Pass, etc.).
-  4. The site refreshes, and suddenly blue dashed lines appear around your titles and paragraphs.
-  5. You click, type, and click away. Saved.

@@ -1,0 +1,24 @@
+{
+  "name": "panhinda",
+  "version": "1.0.0",
+  "description": "Since you are already comfortable with React, FastAPI, and now Supabase, here is the most efficient path:",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18",
+    "@supabase/supabase-js": ">=2"
+  }
+}
